@@ -20,11 +20,10 @@
            int x= mFJC.getMyInt();
            
            x+=3;
-           x%=3;
            
         %>
         
-        <p>8mod3 = <%=x%></p>
+        <p>5+3 = <%=x%></p>
 
 
         <a href="index.jsp">Home</a>
