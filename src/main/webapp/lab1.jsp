@@ -26,5 +26,9 @@
         <p>5+3 = <%=x%></p>
 
 
-        <a href="index.jsp">Home</a>
+        <div>
+            <form action="index.jsp">  
+                <input type="submit" value="Home">
+            </form> 
+        </div>
     </body></html>
