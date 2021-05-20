@@ -15,12 +15,16 @@
     
     <body>
         <div class="container">
-            <a class="btn btn-secondary" href="index.jsp">Back to landing page</a>
-            <h1 class="text-center">Laba 3</h1>
-            <div class="mt-5" id="laba">
+            <h1>Laba 3</h1>
+            <div>
             <%! Lab3Arr lab3 = new Lab3Arr();%>
             <p><%= "Count = " + lab3.ShowArr() %></p>
             </div>
+        </div>
+        <div>
+            <form action="index.jsp">  
+                <input type="submit" value="Home">
+            </form> 
         </div>
     </body>
 </html>

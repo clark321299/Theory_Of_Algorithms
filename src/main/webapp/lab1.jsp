@@ -12,7 +12,7 @@
         <title>TA Start</title>
     </head>
     <body>
-        <h1>This is my lab1!</h1>
+        <h1>Lab 1</h1>
 
         <%! MyFirstJavaClass mFJC = new MyFirstJavaClass(5);%>
 

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Lab 2</h1>
         
         <p><%=request.getAttribute("result")%></p>
         

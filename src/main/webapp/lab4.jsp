@@ -13,7 +13,7 @@
     </head>
     <body>
 
-        <h3>Laba4</h3>
+        <h1>Laba4</h1>
         <br>
 
         <%! Lab4 lab4 = new Lab4();%>
@@ -25,10 +25,6 @@
 
         <p><%= "3) Number of unique words : " + lab4.GetUniqueWords() + '\n'%></p>  
 
-
-
-        <p></p>
-        <p></p>
         <div>
             <form action="index.jsp">  
                 <input type="submit" value="Home">
