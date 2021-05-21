@@ -13,11 +13,13 @@ import java.util.Random;
  * @author clark
  */
 public class Lab3Arr {
-        
+    
+    private double[] arr;
+    
     public int ShowArr(){
     
         int count = 0;
-        double[] arr = new double[20];
+        arr = new double[20];
         
         for (int i = 0; i < 20; i++) {
             arr[i] = (int)(Math.random()*200-100);
@@ -33,5 +35,8 @@ public class Lab3Arr {
         
         return count;
     }
-
+    
+    public String DisplayArr(){
+        return Arrays.toString(arr);
+    }
 }

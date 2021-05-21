@@ -18,6 +18,7 @@
             <div>
             <% Lab3Arr lab3 = new Lab3Arr();%>
             <p><%= "Count = " + lab3.ShowArr() %></p>
+            <p><%= "My Array = " + lab3.DisplayArr() %></p>
             </div>
         </div>
         <div>
