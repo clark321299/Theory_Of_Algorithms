@@ -5,93 +5,128 @@
  */
 package knu.fit.ist.ta.Laba4;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import org.springframework.util.StringUtils;
 
 /**
  *
- * @author clark
+ * @author Ruslan
  */
 public class Lab4 {
-
-    private String Text;
-    private int CountOfWords;
-    private int CountOfUniqueWords;
-
-    public Lab4() {
-        CountOfWords = 0;
-        CountOfUniqueWords = 0;
-        Text = "History\n"
-                + "Java is a high-level, class-based, object-oriented "
-                + "programming language that is designed to have as few "
-                + "implementation dependencies as possible. It is a "
-                + "general-purpose programming language intended to let "
-                + "application developers write once, run anywhere (WORA),"
-                + " meaning that compiled Java code can run on all platforms "
-                + "that support Java without the need for recompilation."
-                + " Java applications are typically compiled to bytecode that"
-                + " can run on any Java virtual machine (JVM) regardless of "
-                + "the underlying computer architecture. The syntax of Java is"
-                + " similar to C and C++, but has fewer low-level facilities "
-                + "than either of them. The Java runtime provides dynamic "
-                + "capabilities (such as reflection and runtime code "
-                + "modification) that are typically not available in "
-                + "traditional compiled languages. As of 2019, Java was one of"
-                + " the most popular programming languages in use according to"
-                + " GitHub,[18][19] particularly for client-server web "
-                + "applications, with a reported 9 million developers.\n" +
-"\n" +
-"Java was originally developed by James Gosling at Sun Microsystems "
-                + "(which has since been acquired by Oracle) and released in "
-                + "1995 as a core component of Sun Microsystems' Java platform."
-                + " The original and reference implementation Java compilers, "
-                + "virtual machines, and class libraries were originally "
-                + "released by Sun under proprietary licenses. As of May 2007, "
-                + "in compliance with the specifications of the Java Community "
-                + "Process, Sun had relicensed most of its Java technologies "
-                + "under the GNU General Public License. Oracle offers its own "
-                + "HotSpot Java Virtual Machine, however the official reference"
-                + " implementation is the OpenJDK JVM which is free open source"
-                + " software and used by most developers and is the default "
-                + "JVM for almost all Linux distributions.\n" +
-"\n" +
-"As of March 2021, the latest version is Java 16, with Java 11, a currently "
-                + "supported long-term support (LTS) version, released on "
-                + "September 25, 2018. Oracle released the last zero-cost "
-                + "public update for the legacy version Java 8 LTS in January "
-                + "2019 for commercial use, although it will otherwise still "
-                + "support Java 8 with public updates for personal use "
-                + "indefinitely. Other vendors have begun to offer zero-cost "
-                + "builds of OpenJDK 8 and 11 that are still receiving security"
-                + " and other upgrades.\n";
-
-        WorkWithText();
-        UniqueWords();
+    private String text;
+    private String[] words;
+    
+    public Lab4(String text)
+    {
+        this.text = text;
+        String textWithoutPunctuation = text;
+        textWithoutPunctuation = textWithoutPunctuation.replace("!", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace("?", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace("\"", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace(",", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace(":", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace("(", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace(")", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace("\"", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace(".", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace("'", "");
+        textWithoutPunctuation = textWithoutPunctuation.replace(";", "");
+        textWithoutPunctuation = textWithoutPunctuation.toLowerCase();
+        words = textWithoutPunctuation.split("\\s+");
     }
+    
+    public String GetText()
+    {
+        return text;
+    }
+    
+    public String GetClearedText()
+    {
+        return String.join(" ", words);
+    }
+    
+    public int GetWordsNumber()
+    {
+        return words.length;
+    }
+    
+    public int GetUniqueWordsNumber()
+    {
+        HashSet uniqueWords = new HashSet(Arrays.asList(words));
+        return uniqueWords.size();
+    }
+    
+    public String GetFirstNMostPopularWords(int n)
+    {
+        Map<String, Integer> dictionary = new HashMap<String, Integer>();
+        for (int i = 0; i < words.length; i++) {
+           if(dictionary.containsKey(words[i]))
+               dictionary.put(words[i], dictionary.get(words[i]) + 1);
+           else
+               dictionary.put(words[i], 1);
+        }
+        List<Entry<String, Integer>> list = new ArrayList<>(dictionary.entrySet());
+        list.sort(Entry.comparingByValue());
+        Collections.reverse(list);
+        Object[] sortedArray = list.toArray();
+        return Arrays.toString(Arrays.copyOfRange(sortedArray, 0, n));
+    }
+    
+    public int GetNumberOfWordsThatNotContain(char letter)
+    {
+        int counter = 0;
+        for (int i = 0; i < words.length; i++) 
+            if(words[i].indexOf(Character.toLowerCase(letter)) == -1 &&
+               words[i].indexOf(Character.toUpperCase(letter)) == -1)
+                counter++;
+        return counter;
+    }
+    
+    public int GetNumberOfWordsThatContainLetters(int number)
+    {
+        int wordLength;
+        int counter = 0;
 
-    public void WorkWithText() {
-        for (int i = 0; i < Text.length(); i++) {
-            if (Text.charAt(i) == ' ') {
-                CountOfWords++;
+        for (int i = 0; i < words.length; i++) {
+            wordLength = words[i].length();
+            for (int j = 0; j < wordLength; j++) {
+                if(StringUtils.countOccurrencesOf(words[i],
+                   Character.toString(words[i].charAt(j))) == number){
+                    counter++;
+                    break;
+                }
             }
         }
-
+        return counter;
     }
-
-    public void UniqueWords() {
-        List<String> stringsDuplicates = Arrays.asList(Text.split(" "));
-        Set<String> cities = new HashSet<>(stringsDuplicates);
-        CountOfUniqueWords = cities.size();
-    }
-
-    public int GetWords() {
-        return CountOfWords;
-    }
-
-    public String GetText() {
-        return Text;
-    }
-
-    public int GetUniqueWords() {
-        return CountOfUniqueWords;
+    
+    public String MostPopularSequences(int number, int length)
+    {
+        Map<String, Integer> dictionary = new HashMap<String, Integer>();
+        int currentWordLength;
+        String sequence;
+        for (int i = 0; i < words.length; i++) {
+            currentWordLength = words[i].length();
+            for (int j = 0; j < currentWordLength - length; j++) {
+                sequence = words[i].substring(j, j + length);
+                if(dictionary.containsKey(sequence))
+                    dictionary.put(sequence, dictionary.get(sequence) + 1);
+                else
+                   dictionary.put(sequence, 1);
+            }
+        }
+        List<Entry<String, Integer>> list = new ArrayList<>(dictionary.entrySet());
+        list.sort(Entry.comparingByValue());
+        Collections.reverse(list);
+        Object[] sortedArray = list.toArray();
+        return Arrays.toString(Arrays.copyOfRange(sortedArray, 0, number));
     }
 }

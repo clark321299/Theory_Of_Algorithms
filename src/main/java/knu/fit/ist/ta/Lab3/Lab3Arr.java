@@ -5,6 +5,7 @@
  */
 package knu.fit.ist.ta.Lab3;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**

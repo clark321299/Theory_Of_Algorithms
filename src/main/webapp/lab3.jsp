@@ -4,8 +4,7 @@
     Author     : clark
 --%>
 
-<%@page import="knu.fit.ist.ta.Lab3.Lab3Arr"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="knu.fit.ist.ta.Lab3.Lab3Arr"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +13,7 @@
     </head>
     
     <body>
-        <div class="container">
+        <div>
             <h1>Laba 3</h1>
             <div>
             <%! Lab3Arr lab3 = new Lab3Arr();%>
