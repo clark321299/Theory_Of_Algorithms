@@ -16,7 +16,7 @@
         <div>
             <h1>Laba 3</h1>
             <div>
-            <%! Lab3Arr lab3 = new Lab3Arr();%>
+            <% Lab3Arr lab3 = new Lab3Arr();%>
             <p><%= "Count = " + lab3.ShowArr() %></p>
             </div>
         </div>

@@ -73,16 +73,16 @@
                 
                 <p>Number of unique words: <%= textProcessor.GetUniqueWordsNumber()%></p>
                 
-                <p>Most popular words(4): <%= textProcessor.GetFirstNMostPopularWords(4)%></p>
+                <p>Most popular words(4): <%= textProcessor.GetFirstNMostPopularWords(5)%></p>
                 
-                <p>Number of words that do not contain letter (d)
+                <p>Number of words that do not contain letter (f)
                     <%= textProcessor.GetNumberOfWordsThatNotContain('f')%></p>
                 
                 <p>Number of words that contain 3 letters (3):
                     <%= textProcessor.GetNumberOfWordsThatContainLetters(3)%></p>
                 
-                <p>Most popular sequences (4):
-                    <%= textProcessor.MostPopularSequences(4, 3)%></p>
+                <p>Most popular sequences (6):
+                    <%= textProcessor.MostPopularSequences(6, 3)%></p>
                 
         <div>
             <form action="index.jsp">  
