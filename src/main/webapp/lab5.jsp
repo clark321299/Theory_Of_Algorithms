@@ -9,7 +9,6 @@
         <title>Lab 5</title>
     </head>
     <body>
-        <a href="index.jsp">Back to landing page</a>
         <%! Lab5_1 lab5_1 = new Lab5_1("Counter-Strike: Global Offensive (CS:GO)"
             + " is a multiplayer first-person shooter developed by Valve and Hidden"
             + " Path Entertainment. It is the fourth game in the Counter-Strike series. "
@@ -64,5 +63,10 @@
             <p><b>Index of element with value </b><%= find %>: <%= lab5_2.jumpSearch(find)%></p>
             <% lab5_2.SortByByteField();%>
             <p><b>Sorted by byte field: </b><br/> <%= lab5_2.DisplayList()%></p>
+            <div>
+            <form action="index.jsp">  
+                <input type="submit" value="Home">
+            </form> 
+            </div>
     </body>
 </html>
