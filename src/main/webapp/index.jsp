@@ -65,7 +65,7 @@
             
             <tr>
                  <td>
-                    <form action="lab6-7.jsp">           
+                    <form action="lab6.jsp">           
             
                         <input type="submit" value="Lab6-7">
                     </form> 
