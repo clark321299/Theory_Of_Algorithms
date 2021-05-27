@@ -14,11 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Clark
+ * @author clark
  */
 public class Lab5Servlet extends HttpServlet {
-
-    @Override
+@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         String find = request.getParameter("find");

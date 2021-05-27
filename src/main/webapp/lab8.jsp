@@ -9,7 +9,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="index.jsp">Back to landing page</a>
         <h2 class="text-left"><b>Постановка задачі:</b> відсортувати масив цілих чисел</h2>
         <p><b>Вихідні дані:</b><br>Кількість елементів: 35000</p>
         <%! Algorithms algorithms = new Algorithms(35000);%>
@@ -34,5 +33,10 @@
         <p><b>Кількість порівнянь </b><%= shellSortDetails.getComparisons() %></p>
         <p><b>Кількість перестановок </b><%= shellSortDetails.getSubstitutions() %></p>
         <p><b>Складність(Big-O): n(log(n))^2</b></p>
+        <div>
+            <form action="index.jsp">  
+                <input type="submit" value="Home">
+            </form> 
+        </div>
     </body>
 </html>
