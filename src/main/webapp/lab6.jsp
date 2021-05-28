@@ -34,7 +34,9 @@
                 <p>Result:<br> <%= BinaryTreePrinter.printNode(tree.getRoot())%></p>
                 </pre>
                 <%tree.mirrorTree(tree.getRoot()); %>
-                
+                <pre>
+                <p>Result:<br> <%= BinaryTreePrinter.printNode(tree.getRoot())%></p>
+                </pre>
             </div>
         </div>
         <div>
