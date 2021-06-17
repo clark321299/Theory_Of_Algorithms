@@ -80,6 +80,15 @@
                     </form> 
                 </td>
             </tr>
+            
+            <tr>
+                <td>
+                    <form action="exam.jsp">           
+            
+                        <input type="submit" value="EXAM">
+                    </form> 
+                </td>
+            </tr>
         </table>
 
     </body>
