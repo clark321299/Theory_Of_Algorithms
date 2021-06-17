@@ -18,7 +18,7 @@
     <body>
         
         <h1>EXAM</h1>
-        <h1>Yurii Yaroshenko IoT-11 Variant-25</h1>
+        <h1>Yurii Yaroshenko IoT-11 Variant-24</h1>
         
         <p1>1. Розробити та реалізувати алгоритм для обчислення значень функції:
 	f(x)= 5/(8x-10)</p1>
